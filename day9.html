@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "container">
+        <div class="meo">meo</div>
+        <div class="cho">gaugau</div>
+        <span id = "hoahong">hoa hong</span>
+        <span>hoa cuc</span>
+        <span>hoa hue</span>
+        <p>con tho</p>
+        <p>con ga</p>
+
+        <button onclick="changecolor()">Change color</button><br>
+
+        <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+
+        <button id = "cong" onclick="cong()">Cong</button>
+        <button id = "tru" onclick="tru()">Tru</button>
+        <button id = "nhan" onclick="nhan()">Nhan</button>
+        <button id = "chia" onclick="chia()">Chia</button><br>
+
+        <button id="change_color" onclick="changeColor('blue')">Change color 1</button>
+        <button id="change_color" onclick="changeColor('orange')">Change color 2</button>
+        <button id="change_color" onclick="changeColor('azure')">Change color 3</button>
+        <button id="change_color" onclick="changeColor('green')">Change color 4</button>
+        <button onclick="changeColor1()">Change color gradient</button>
+    </div>
+
+    <script>
+        var meo = document.getElementsByClassName("meo")
+        var cho = document.getElementsByClassName("cho")
+        var span = document.getElementsByTagName("span")
+        var p = document.getElementsByTagName("p")
+        //querySelector: lấy element bằng cách query, nếu có nhiều thẻ giống nhau thì sẽ hiển thị cái đầu tiên
+        var contho = document.querySelector("p")
+        //query theo id
+        var hoaHong = document.querySelector("#hoahong")
+        //query theo class name
+        var meo_class = document.querySelector(".meo")
+        var input = document.getElementsByTagName("input")
+        var container = document.getElementById("container")
+
+        // //lấy nội dung của class
+        // alert(meo.innerHTML);
+        // alert(cho.innerHTML);
+
+        //lấy nội dung mấy thẻ span, hiển thị ra alert trên page
+        // for(var i = 0; i < span.length; i++){
+        //     alert(span[i].innerHTML)
+        // }
+        
+        // alert(p[0].innerHTML);
+        // alert(p[1].innerHTML);
+
+        // alert(contho.innerHTML)
+        // alert(hoaHong.innerHTML)
+        // alert(meo_class.innerHTML)
+        
+        function changecolor(){
+            document.querySelector(".container").style.background = "orange"
+        }
+
+        function cong(){
+            //với field input phải xài .value để thay đổi giá trị
+            //nếu để input[0] -> value là string, phải parse về int hoặc float mới cộng được
+            input[2].value = parseInt(input[0].value) + parseInt(input[1].value)
+        }
+
+        function tru(){
+            input[2].value = parseInt(input[0].value) - parseInt(input[1].value)
+        }
+
+        function nhan(){
+            input[2].value = parseInt(input[0].value) * parseInt(input[1].value)
+        }
+
+        function chia(){
+            var result = parseFloat(input[0].value) / parseFloat(input[1].value)
+            input[2].value = result.toFixed(2)
+        }
+
+        function changeColor(color){
+            container.style.background = color
+        }
+
+        function changeColor1(){
+            container.style.background = generateGradient(10, 100, 245)
+        }
+
+        // function generateGradient(one, two, three) {
+        // let lessOne = one;
+        // let moreOne = one + 120;
+        // let lessTwo = two;
+        // let moreTwo = two + 120;
+        // let lessThree = three;
+        // let moreThree = three + 120;
+
+        // if ((moreOne + 120) > 255) {
+        //     moreOne = moreOne - 255;
+        // }
+        // if ((moreTwo + 120) > 255) {
+        //     moreTwo = moreTwo - 255;
+        // }
+        // if ((moreThree + 120) > 255) {
+        //     moreThree = moreThree - 255;
+        // }
+
+        // document.getElementsByTagName("body")[0].style.backgroundImage = 'linear-gradient(45deg, rgb(' + lessOne + ',' + lessTwo + ',' + lessThree + '), rgb(' + one + ',' + two + ',' + three + '), rgb(' + moreOne + ',' + moreTwo + ',' + moreThree + '))';
+        // }
+    </script>
+</body>
+</html>

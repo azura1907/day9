@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="meo">
+        hello meo
+    </div>  
+
+    <div id="cho">
+        kìa.... con chó =))
+    </div>
+
+    <p id="demo">
+        Count: 0
+    </p>
+    
+    <button id = "clickMe" >
+        Click here
+    </button>
+    <script>
+        var name = 'thùy văn'
+        var fontSize = 35
+        var fontSizeMeo = '400px'
+        var color = 'orange'
+        var backgroundColor = 'grey'
+        var fontFamily = 'Arial'
+        //khai báo biến để tái sử dụng
+        var theP = document.getElementById("demo")
+        var meo = document.getElementById("meo")
+        var cho = document.getElementById("cho")
+        var btn = document.getElementById("clickMe")
+
+        
+        //set biến count cho func click button ở dưới
+        var count = 0
+
+        // document.getElementById -> select element để tương tác
+        //.innerHTML để thay đổi giá trị của thẻ html đó
+        //.style là thay đổi style của thẻ html
+        // theP.innerHTML = name
+        theP.style.fontSize = fontSize + 'px'
+        theP.style.color = color
+        theP.style.fontFamily = fontFamily
+        theP.style.display = 'block'
+        theP.style.background = backgroundColor
+
+        meo.style.width = fontSizeMeo
+        meo.style.backgroundColor = color
+        meo.style.fontSize = fontSize * 2 + 'px'
+
+        //classList.add -> để apply 1 class cho element
+        //class có thể đc style css -> bốc vào apply, khỏi viết lại dài dòng
+        cho.classList.add('active');
+
+        //add event cho button
+        btn.addEventListener("click", function(){
+            count = count + 1
+            demo.innerHTML = 'Count: ' + count
+        }
+        )
+    </script>
+</body>
+</html>
